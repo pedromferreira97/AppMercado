@@ -1,0 +1,17 @@
+{
+    "alimentos": [
+        {
+            "id": 1,
+            "produto": "Arroz",
+            "quantidade": "5kg",
+            "estoque": "1000"
+            
+        },
+        {
+            "id": 2,
+            "produto": "Feijão",
+            "quantidade": "1kg",
+            "estoque": "1000"
+        }
+    ]
+}
