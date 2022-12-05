@@ -34,8 +34,21 @@ export class HomePage implements OnInit{
 }
   async alertando() {
     const alert = this.alertCtrl.create({
-      message: 'Alertando',
-      buttons: ['Ok']
+      mode: 'ios',
+      header: 'Inserir novo produto: ',
+      buttons: ['Ok'],
+      inputs: [
+        {
+          name: 'produto',
+          type: 'text',
+          placeholder: 'Produto'
+        },
+        {
+          name: 'quantidade',
+          type: 'number',
+          placeholder: 'Quantidade'
+        },
+      ], 
     });
     
   (await alert).present();
