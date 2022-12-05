@@ -28,8 +28,17 @@ export class HomePage implements OnInit{
       message: 'Aguarde...',
       duration: 1500
   });
-
+  
   (await load).present();
+  
+}
+  async alertando() {
+    const alert = this.alertCtrl.create({
+      message: 'Alertando',
+      buttons: ['Ok']
+    });
+    
+  (await alert).present();
+  }
+}
 
-}
-}

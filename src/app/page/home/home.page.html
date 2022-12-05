@@ -22,7 +22,6 @@
 
 <ion-content [fullscreen]="true">
   <ion-img [src]="imagem" width="50%" height="50%"></ion-img> 
-  <h2 mode="ios">Lista de Compras</h2>
     <ion-list>      
       <ion-item-sliding *ngFor="let alimento of alimentos" color="warning">
         <ion-item>
@@ -36,7 +35,7 @@
       </ion-item-sliding>
     </ion-list>
     <ion-fab horizontal="end" vertical="bottom">
-      <ion-fab-button>
+      <ion-fab-button (click)="alertando()">
         <ion-icon name="add-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
