@@ -1,11 +1,15 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-sobre',
-    templateUrl: 'sobre.page.html',
-    styleUrls: ['sobre.page.scss']
+  selector: 'app-sobre',
+  templateUrl: './sobre.page.html',
+  styleUrls: ['./sobre.page.scss'],
 })
+export class SobrePage implements OnInit {
 
-export class SobrePage{
-    constructor(){}
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

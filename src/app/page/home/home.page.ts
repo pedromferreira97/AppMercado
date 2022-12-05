@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Alimentos } from './alimentos.model';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -10,12 +11,24 @@ import { Alimentos } from './alimentos.model';
   
 })
 export class HomePage implements OnInit{
-  imagem = "https://xtudoreceitas.com/wp-content/uploads/Arroz-soltinho-8-dicas.jpg"
+  imagem = "https://www.thespruceeats.com/thmb/ZGYphok4vrmJwgksVIyjR--sROw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-482142025-e10af7541fe844a1a8decb35bffb5a40.jpg"
   alimentos: Alimentos[] = [];
-  constructor(private pedro: HttpClient) {}
+  constructor(private pedro: HttpClient,
+    private controle: LoadingController) {}
 
   ngOnInit(): void {
-    this.pedro.get<Alimentos[]>('http://localhost:3000/alimentos').subscribe(caixa => this.alimentos = caixa)
+    this.carregando();
+    this.pedro.get<Alimentos[]>('http://localhost:3000/alimentos').subscribe(results => this.alimentos = results)
   }
 
+  async carregando() {
+    const load = this.controle.create({
+      mode: 'ios',
+      message: 'Aguarde...',
+      duration: 1500
+  });
+
+  (await load).present();
+
+}
 }

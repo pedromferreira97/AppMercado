@@ -3,4 +3,5 @@ export interface Alimentos {
     produto: String;
     quantidade: String;
     estoque: String;
+    imagem: String;
 }

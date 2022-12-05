@@ -10,6 +10,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'sobre',
+    loadChildren: () => import('./page/sobre/sobre.module').then( m => m.SobrePageModule)
+  },
+  {
+    path: 'contato',
+    loadChildren: () => import('./page/contato/contato.module').then( m => m.ContatoPageModule)
   }
 ];
 

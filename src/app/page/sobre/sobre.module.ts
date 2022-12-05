@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
-import { SobrePage } from './sobre.page';
+import { IonicModule } from '@ionic/angular';
+
 import { SobrePageRoutingModule } from './sobre-routing.module';
 
+import { SobrePage } from './sobre.page';
 
 @NgModule({
   imports: [
