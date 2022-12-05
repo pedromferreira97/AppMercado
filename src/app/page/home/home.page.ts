@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Alimentos } from './alimentos.model';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -14,7 +14,8 @@ export class HomePage implements OnInit{
   imagem = "https://www.thespruceeats.com/thmb/ZGYphok4vrmJwgksVIyjR--sROw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-482142025-e10af7541fe844a1a8decb35bffb5a40.jpg"
   alimentos: Alimentos[] = [];
   constructor(private pedro: HttpClient,
-    private controle: LoadingController) {}
+    private loadCtrl: LoadingController,
+    private alertCtrl: AlertController) {}
 
   ngOnInit(): void {
     this.carregando();
@@ -22,7 +23,7 @@ export class HomePage implements OnInit{
   }
 
   async carregando() {
-    const load = this.controle.create({
+    const load = this.loadCtrl.create({
       mode: 'ios',
       message: 'Aguarde...',
       duration: 1500
