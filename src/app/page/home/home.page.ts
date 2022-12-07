@@ -3,7 +3,7 @@ import { Alimentos } from './alimentos.model';
 
 import { AlertController, LoadingController } from '@ionic/angular';
 import { DatabaseService } from '../servico/database.service';
-import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -17,8 +17,7 @@ export class HomePage implements OnInit{
   alimentos: Alimentos[] = [];
   constructor(private loadCtrl: LoadingController,
     private alertCtrl: AlertController, 
-    private db: DatabaseService, 
-    private rota: Router) {}
+    private db: DatabaseService) {}
 
   ngOnInit(): void {
     this.carregando();
