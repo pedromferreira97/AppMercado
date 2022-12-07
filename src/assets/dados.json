@@ -1,33 +1,24 @@
 {
-    "alimentos": [
-        {
-            "id": 1,
-            "produto": "Arroz",
-            "quantidade": "5kg",
-            "estoque": "1000",
-            "imagem": "https://xtudoreceitas.com/wp-content/uploads/Arroz-soltinho-8-dicas.jpg"
-            
-        },
-        {
-            "id": 2,
-            "produto": "Feijão",
-            "quantidade": "1kg",
-            "estoque": "1000",
-            "imagem": "https://img.imageboss.me/consul/cdn/animation:true/wp-content/uploads/2021/12/feijao-feed_01.png"
-        },
-        {
-            "id": 3,
-            "produto": "Macarrão",
-            "quantidade": "1kg",
-            "estoque": "1000",
-            "imagem": "http://3.bp.blogspot.com/-n1CO8koK_fk/UwzmslaqxVI/AAAAAAAAFHs/CT3vtiblNXA/s1600/IMG_20140225_153457.jpg"
-        },
-        {
-            "id": 4,
-            "produto": "Alcatra",
-            "quantidade": "1kg",
-            "estoque": "1000",
-            "imagem": "https://supermercadosrondon.com.br/guiadecarnes/images/postagens/conhea_5_benefcios_da_carne_bovina_2020-03-25.jpg"
-        }
-    ]
+  "alimentos": [
+    {
+      "produto": "Picanha",
+      "quantidade": "20kg",
+      "id": 1
+    },
+    {
+      "produto": "Maminha",
+      "quantidade": "2kg",
+      "id": 2
+    },
+    {
+      "produto": "Cerveja",
+      "quantidade": "20",
+      "id": 3
+    },
+    {
+      "produto": "Arroz",
+      "quantidade": "10kg",
+      "id": 4
+    }
+  ]
 }

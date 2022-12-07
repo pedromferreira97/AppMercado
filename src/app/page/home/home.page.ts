@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Alimentos } from './alimentos.model';
+
 import { AlertController, LoadingController } from '@ionic/angular';
+import { DatabaseService } from '../servico/database.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,13 +15,14 @@ import { AlertController, LoadingController } from '@ionic/angular';
 export class HomePage implements OnInit{
   imagem = "https://www.thespruceeats.com/thmb/ZGYphok4vrmJwgksVIyjR--sROw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-482142025-e10af7541fe844a1a8decb35bffb5a40.jpg"
   alimentos: Alimentos[] = [];
-  constructor(private pedro: HttpClient,
-    private loadCtrl: LoadingController,
-    private alertCtrl: AlertController) {}
+  constructor(private loadCtrl: LoadingController,
+    private alertCtrl: AlertController, 
+    private db: DatabaseService, 
+    private rota: Router) {}
 
   ngOnInit(): void {
     this.carregando();
-    this.pedro.get<Alimentos[]>('http://localhost:3000/alimentos').subscribe(results => this.alimentos = results)
+    this.db.getItem().subscribe(results => this.alimentos = results);
   }
 
   async carregando() {
@@ -36,22 +39,45 @@ export class HomePage implements OnInit{
     const alert = this.alertCtrl.create({
       mode: 'ios',
       header: 'Inserir novo produto: ',
-      buttons: ['Ok'],
       inputs: [
         {
-          name: 'produto',
+          name: 'item',
           type: 'text',
           placeholder: 'Produto'
         },
         {
           name: 'quantidade',
-          type: 'number',
+          type: 'text',
           placeholder: 'Quantidade'
         },
-      ], 
-    });
-    
-  (await alert).present();
+      ],
+      buttons: [
+      { text: 'Cancelar',
+        role: 'cancel',
+        handler: () => { console.log ("Desistiu.")}
+      },
+      { text: 'Cadastrar', 
+        handler: (form) => {
+          let item = {produto: form.item, quantidade: form.quantidade};
+          this.cadastro(item);
+        }
+      }
+      ]
+    });  
+      (await alert).present();
+  } 
+  cadastro(item: any){
+    this.db.postItem(item);
+    location.reload();
+  }
+
+  deletar(id: Number){
+    this.db.delItem(id);    
+    location.reload();
+  }
+
+  editar(id: Number){
+
   }
 }
 
