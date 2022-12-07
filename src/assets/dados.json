@@ -19,6 +19,26 @@
       "produto": "Arroz",
       "quantidade": "10kg",
       "id": 4
+    },
+    {
+      "produto": "Feijão",
+      "quantidade": "2kg",
+      "id": 5
+    },
+    {
+      "produto": "Macarrão",
+      "quantidade": "1kg",
+      "id": 6
+    },
+    {
+      "produto": "Tomate",
+      "quantidade": "800g",
+      "id": 9
+    },
+    {
+      "produto": "Suco de Laranja",
+      "quantidade": "10",
+      "id": 10
     }
   ]
 }

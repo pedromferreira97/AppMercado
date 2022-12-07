@@ -16,7 +16,7 @@ export class DatabaseService {
    getItem() {
     return this.http.get<Alimentos[]>(this.API);
    }
-   postItem(alimento: Alimentos) {
+   postItem(alimento: any) {
     return this.http.post(this.API, JSON.stringify(alimento), this.httpOptions).subscribe();
    }
    delItem(id: Number) {
