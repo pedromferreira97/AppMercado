@@ -12,7 +12,7 @@
 
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar mode="ios">
+    <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -22,11 +22,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-img [src]="imagem" width="50%" height="50%"></ion-img> 
-    <ion-list>      
+    <ion-list mode="ios">      
       <ion-item-sliding *ngFor="let alimento of alimentos" color="warning">
-        <ion-item>
-          <ion-label>{{alimento.produto}}</ion-label>
-          <ion-label>{{alimento.quantidade}}</ion-label>  
+        <ion-item (click)="acaofolha()">
+          <!-- Opção unchecked -->
+          <ion-icon name="radio-button-off" *ngIf="!alimento.status"></ion-icon>
+          <ion-label *ngIf="!alimento.status"><strong>Produto: </strong>{{alimento.produto}}</ion-label>
+          <ion-label *ngIf="!alimento.status"><strong>Quant: </strong>{{alimento.quantidade}}</ion-label>  
+          <!-- Opção checked -->
+          <ion-icon name="checkmark-circle" color="success" *ngIf="alimento.status"></ion-icon><br>
+          <ion-label *ngIf="alimento.status"><del><strong>Produto: </strong>{{alimento.produto}}</del></ion-label>
+          <ion-label *ngIf="alimento.status"><del><strong>Quant: </strong>{{alimento.quantidade}}</del></ion-label>  
         </ion-item>
         <ion-item-options>
           <ion-item-option color="danger" (click)="deletar(alimento.id)"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
@@ -36,7 +42,7 @@
     </ion-list>
     <ion-fab horizontal="end" vertical="bottom">
       <ion-fab-button (click)="alertando()" >
-        <ion-icon name="add-outline"></ion-icon>
+        <ion-icon name="cart-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
 </ion-content>

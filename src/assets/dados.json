@@ -2,43 +2,27 @@
   "alimentos": [
     {
       "produto": "Picanha",
-      "quantidade": "20kg",
+      "quantidade": "5kg",
+      "status": false,
       "id": 1
     },
     {
-      "produto": "Maminha",
+      "produto": "Macarrão",
       "quantidade": "2kg",
+      "status": false,
       "id": 2
     },
     {
-      "produto": "Cerveja",
-      "quantidade": "20",
+      "produto": "Suco de Uva",
+      "quantidade": "10l",
+      "status": false,
       "id": 3
     },
     {
-      "produto": "Arroz",
-      "quantidade": "10kg",
-      "id": 4
-    },
-    {
-      "produto": "Feijão",
-      "quantidade": "2kg",
-      "id": 5
-    },
-    {
-      "produto": "Macarrão",
-      "quantidade": "1kg",
-      "id": 6
-    },
-    {
-      "produto": "Tomate",
+      "produto": "Queijo",
       "quantidade": "800g",
-      "id": 9
-    },
-    {
-      "produto": "Suco de Laranja",
-      "quantidade": "10",
-      "id": 10
+      "status": false,
+      "id": 4
     }
   ]
 }
