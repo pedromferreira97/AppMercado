@@ -83,7 +83,7 @@ export class HomePage implements OnInit{
     (await alert).present();
   
   }
-  async acaofolha() {
+  async acaofolha(alimento: Alimentos) {
       const folha = this.acao.create({
         mode: "ios",
         header: 'Opções',
@@ -91,12 +91,14 @@ export class HomePage implements OnInit{
         {
           text: 'Marcar',
           handler: () => {
+            alimento.status = !alimento.status;
             this.uso.toastando("Item marcado", "bottom", 2000, "primary")
           }
         },
         {
           text: 'Desmarcar',
           handler: () => {
+            alimento.status = !alimento.status;
             this.uso.toastando("Item desmarcado", "bottom", 2000, "secondary")
           }
         },

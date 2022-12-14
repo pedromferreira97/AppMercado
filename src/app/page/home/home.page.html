@@ -24,7 +24,7 @@
   <ion-img [src]="imagem" width="50%" height="50%"></ion-img> 
     <ion-list mode="ios">      
       <ion-item-sliding *ngFor="let alimento of alimentos" color="warning">
-        <ion-item (click)="acaofolha()">
+        <ion-item (click)="acaofolha(alimento)">
           <!-- Opção unchecked -->
           <ion-icon name="radio-button-off" *ngIf="!alimento.status"></ion-icon>
           <ion-label *ngIf="!alimento.status"><strong>Produto: </strong>{{alimento.produto}}</ion-label>
