@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title color="secondary">SmartList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios">
+  <ion-img [src]="imagem" width="50%" height="50%" alt="Imagem de Supermercado"></ion-img><br>
+    <form>
+      <ion-item>
+        <ion-label>Altere o produto: </ion-label>
+        <ion-input type="text" name="produto"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Altere a quantidade: </ion-label>
+        <ion-input type="text" name="quantidade"></ion-input>
+      </ion-item><br>
+      <ion-button type="submit" color="secondary" expand="block">Atualizar</ion-button>
+    </form>
+</ion-content>  

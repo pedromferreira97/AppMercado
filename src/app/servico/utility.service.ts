@@ -31,7 +31,7 @@ export class UtilityService {
       setTimeout(this.refresh, 2000);
     }
 
-    //método do reload (usando location.reload dentro do toastando ia muito rápido)
+    //Método do reload (usando location.reload dentro do toastando ia muito rápido)
     refresh(){
         location.reload();
     }

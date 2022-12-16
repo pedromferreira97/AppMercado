@@ -9,7 +9,7 @@
     {
       "produto": "Macarrão",
       "quantidade": "2kg",
-      "status": false,
+      "status": true,
       "id": 2
     },
     {
@@ -21,8 +21,14 @@
     {
       "produto": "Queijo",
       "quantidade": "800g",
-      "status": false,
+      "status": true,
       "id": 4
+    },
+    {
+      "produto": "Guaraná",
+      "quantidade": "4l",
+      "status": false,
+      "id": 5
     }
   ]
 }

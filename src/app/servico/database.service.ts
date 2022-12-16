@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Alimentos } from '../home/alimentos.model';
+import { Alimentos } from '../model/alimentos.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,17 @@ export class DatabaseService {
    getItem() {
     return this.http.get<Alimentos[]>(this.API);
    }
+   //Método para trazer um único item
+   getOneItem(id: Number){
+    return this.http.get<Alimentos>(this.API + id);
+   }
    postItem(alimento: any) {
     return this.http.post(this.API, JSON.stringify(alimento), this.httpOptions).subscribe();
    }
    delItem(id: Number) {
     return this.http.delete(this.API + id).subscribe();
    }
-   ediItem(id: Number) {
+   alteraStatus(alimento: Alimentos){
+    return this.http.put(this.API + alimento.id, JSON.stringify(alimento), this.httpOptions).subscribe();
    }
 }

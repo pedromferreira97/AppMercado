@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Alimentos } from './alimentos.model';
+import { Alimentos } from '../../model/alimentos.model';
 
 import { AlertController, IonItem, IonPopover, LoadingController } from '@ionic/angular';
-import { DatabaseService } from '../servico/database.service';
-import { UtilityService } from '../servico/utility.service';
+import { DatabaseService } from '../../servico/database.service';
+import { UtilityService } from '../../servico/utility.service';
 import { ActionSheetController } from '@ionic/angular';
 
 
@@ -69,7 +69,7 @@ export class HomePage implements OnInit{
           handler: (form) => {
             let item = {produto: form.item, quantidade: form.quantidade, status: false};
           try {
-            this.cadastro(item);
+            this.cadastrar(item);
           } catch(err) {
             console.log(err)
           } finally {
@@ -89,24 +89,20 @@ export class HomePage implements OnInit{
         header: 'Opções',
         buttons: [
         {
-          text: 'Marcar',
+          text: alimento.status ? 'Desmarcar' : 'Marcar',
+          icon: alimento.status ? 'radio-button-off' : 'checkmark-circle',
           handler: () => {
             alimento.status = !alimento.status;
-            this.uso.toastando("Item marcado", "bottom", 2000, "primary")
+            this.db.alteraStatus(alimento);
+            alimento.status ? this.uso.toastando("Item marcado", "bottom", 2000, "secondary") : this.uso.toastando("Item desmarcado", "bottom", 2000, "primary")
           }
         },
-        {
-          text: 'Desmarcar',
-          handler: () => {
-            alimento.status = !alimento.status;
-            this.uso.toastando("Item desmarcado", "bottom", 2000, "secondary")
-          }
-        },
+        
         {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            this.uso.toastando("Item cancelado", "bottom", 2000, "danger")
+            this.uso.toastando("Cancelado", "bottom", 2000, "danger")
           }
         }
       ]
@@ -117,7 +113,7 @@ export class HomePage implements OnInit{
   }
   
   //Métodos: 
-  cadastro(item: any){
+  cadastrar(item: any){
     this.db.postItem(item);
   }
 
@@ -129,10 +125,6 @@ export class HomePage implements OnInit{
     } finally {
       this.uso.toastando("Item excluído", "bottom", 2000, "danger");
     }
-  }
-
-  editar(id: Number){
-    this.db.ediItem(id);
   }
 }
 

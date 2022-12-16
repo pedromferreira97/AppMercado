@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'contato',
     loadChildren: () => import('./page/contato/contato.module').then( m => m.ContatoPageModule)
+  },
+  {
+    path: 'form/:id',
+    loadChildren: () => import('./page/form/form.module').then( m => m.FormPageModule)
   }
 ];
 
