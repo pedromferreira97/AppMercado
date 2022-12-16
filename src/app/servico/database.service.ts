@@ -29,4 +29,7 @@ export class DatabaseService {
    alteraStatus(alimento: Alimentos){
     return this.http.put(this.API + alimento.id, JSON.stringify(alimento), this.httpOptions).subscribe();
    }
+   alteraItem(alimento: Alimentos, id: any){
+    return this.http.put(this.API + id, JSON.stringify(alimento), this.httpOptions).subscribe();
+   }
 }

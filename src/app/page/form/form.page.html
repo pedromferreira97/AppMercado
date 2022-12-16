@@ -9,14 +9,14 @@
 
 <ion-content mode="ios">
   <ion-img [src]="imagem" width="50%" height="50%" alt="Imagem de Supermercado"></ion-img><br>
-    <form>
+    <form #form="ngForm" (ngSubmit)="updateItem(form)">
       <ion-item>
         <ion-label>Altere o produto: </ion-label>
-        <ion-input type="text" name="produto"></ion-input>
+        <ion-input type="text" name="produto" [ngModel]="produto.produto"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label>Altere a quantidade: </ion-label>
-        <ion-input type="text" name="quantidade"></ion-input>
+        <ion-input type="text" name="quantidade" [ngModel]="produto.quantidade"></ion-input>
       </ion-item><br>
       <ion-button type="submit" color="secondary" expand="block">Atualizar</ion-button>
     </form>

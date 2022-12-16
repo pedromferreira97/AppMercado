@@ -19,27 +19,16 @@ export class HomePage implements OnInit{
   
   imagem = "https://www.thespruceeats.com/thmb/ZGYphok4vrmJwgksVIyjR--sROw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-482142025-e10af7541fe844a1a8decb35bffb5a40.jpg"
   
-  constructor(private loadCtrl: LoadingController,
-    private alertCtrl: AlertController, 
+  constructor(private alertCtrl: AlertController, 
     private db: DatabaseService,
     private uso: UtilityService,
     private acao: ActionSheetController) {}
 
   ngOnInit(): void {
-    this.carregando();
+    this.uso.carregando("Aguarde", 2000);
     this.db.getItem().subscribe(results => this.alimentos = results);
   }
   //Métodos async
-  async carregando() {
-    const load = this.loadCtrl.create({
-      mode: 'ios',
-      message: 'Aguarde...',
-      duration: 1500
-  });
-  
-  (await load).present();
-  
-  }
   async alertando() {
     const alert = this.alertCtrl.create({
       mode: 'ios',
@@ -101,9 +90,7 @@ export class HomePage implements OnInit{
         {
           text: 'Cancelar',
           role: 'cancel',
-          handler: () => {
-            this.uso.toastando("Cancelado", "bottom", 2000, "danger")
-          }
+          handler: () => {}
         }
       ]
   });
